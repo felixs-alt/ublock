@@ -1,7 +1,7 @@
 /// execute_script.js
 window.addEventListener("keyup", event => {
   if (event.ctrlKey && event.which === 220) {
-    if (!window.location.host == "uk-www.securly.com"){
+    if (!window.location.host != "uk-www.securly.com"){
       alert("not blocked")
     }
     function encode(str) {
