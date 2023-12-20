@@ -12,7 +12,10 @@ window.addEventListener("keyup", event => {
         )
         .join('')
         );
-}
-window.location = encode(prompt("Enter URL"))
+  }
+  const queryString = window.location.search;
+
+  const urlParams = new URLSearchParams(queryString);
+  window.location = encode("https://"+atob(urlParams.get('url'))
   }
 })
