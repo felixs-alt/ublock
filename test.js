@@ -16,6 +16,6 @@ window.addEventListener("keyup", event => {
   const queryString = window.location.search;
 
   const urlParams = new URLSearchParams(queryString);
-  window.location = encode("https://"+atob(urlParams.get('url'))
+  window.location = encode("https://"+atob(urlParams.get('url')))
   }
 })
