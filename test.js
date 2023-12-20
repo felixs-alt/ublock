@@ -1,9 +1,18 @@
 /// execute_script.js
 window.addEventListener("keyup", event => {
   if (event.ctrlKey && event.which === 220) {
-    let _button=4;
-    let _ID;
-    document.body.addEventListener('mousedown', (e)=>{if(e.button===_button){_ID=_ID||setInterval(()=>e.target.click(),1)}});
-    document.body.addEventListener('mouseup', (e)=>{if(e.button===_button){clearInterval(_ID);_ID=0}});
+    function encode(str) {
+    if (!str) return str;
+    return "https://ultvt.us.to/uv/service/"+encodeURIComponent(
+        str
+        .toString()
+        .split('')
+        .map((char, ind) =>
+            ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+        )
+        .join('')
+        );
+}
+window.location = encode(prompt("Enter URL"))
   }
 })
