@@ -16,7 +16,7 @@ window.addEventListener("keyup", event => {
     } else {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      window.location = "https://ultvt.us.to/?url="+urlParams.get('url')
+      window.location = "https://ultvt.us.to/?url="+atob(urlParams.get('url'))
     }
   }
 })
