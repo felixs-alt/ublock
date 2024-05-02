@@ -14,9 +14,13 @@ window.addEventListener("keyup", event => {
         .catch(error => console.error('Error fetching script:', error));
         })();
     } else {
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      window.location = "https://ultvt.us.to/?url="+atob(urlParams.get('url'))
+      function encode(str) {
+        if (!str) return str;
+        return "https://ultvt.us.to/uv/service/"+encodeURIComponent(
+        str.toString().split('').map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char).join(''));}
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        window.location = encode("https://"+atob(decodeURI(urlParams.get('url'))))
+      }
     }
-  }
 })
